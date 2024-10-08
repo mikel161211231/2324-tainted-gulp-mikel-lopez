@@ -89,3 +89,21 @@ function showPotion(potion) {
     console.log(`-------------------------------------------------------`);
     
 }
+
+
+function showCharacter(character) {
+    console.log(character.fullName);
+    console.log("---------------------------------------------------------------------");
+    console.log(`Health:           ${character.health} `);
+    console.log(`Magick:           ${character.magick} `);
+    console.log(`Stamina:           ${character.stamina} `);
+
+    for (let i = 0; i < character.potions.length; i++) {
+        const potion = character.potions[i];
+
+        console.log("Potion "+(i+1)+":     "+ potion.name);
+        
+    }
+    
+    
+}
