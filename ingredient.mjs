@@ -2,7 +2,7 @@ import { Effect } from "./effect.mjs";
 
 
 export class Ingredient {
-    constructor({name, effects, value, weight}) {
+    constructor(name, effects, value, weight) {
         this.name = name;
         this.effects = effects;
         this.value = value;
@@ -10,12 +10,14 @@ export class Ingredient {
 
     }
 
-    static from({name, effects, value, weight}){
+    static from(ingredient){
+        
+        
         return(new Ingredient(
-            name,
-            effects.map(effects => Effect.from(effects)),
-            value,
-            weight
+            ingredient.name,
+            ingredient.effects.map(effects => Effect.from(effects)),
+            ingredient.value,
+            ingredient.weight
         ));
     }
 

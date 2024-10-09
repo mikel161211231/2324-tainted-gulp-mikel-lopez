@@ -21,6 +21,6 @@ export class Character {
         const stamina = playerData.stamina;
 
 
-        return (new Character(fullName, health, magick, stamina, potions));
+        return (new Character(fullName, health, magick, stamina, potions.createdPotions));
     }
 }
