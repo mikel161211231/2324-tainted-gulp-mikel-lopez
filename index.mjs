@@ -21,18 +21,20 @@ const execute = async () => {
         // Create the cauldron of potions
         const cauldron = new Cauldron(ingredients);
      
-        
         const pouch_aged = dataPlayer.players[0].pouch_aged;
+        const pouch_red = dataPlayer.players[0].pouch_red;
+        const pouch_green = dataPlayer.players[0].pouch_green;
+        const pouch_yellow = dataPlayer.players[0].pouch_yellow;
        
         // Create the bag of potions
-        const potionBag = PotionBag.create(pouch_aged, cauldron);
+        const potionBag = PotionBag.create(pouch_red, cauldron);
 
         
         // Create character 
         const player = Character.from(dataPlayer.players[0], potionBag);
         showCharacter(player)
 
-        
+        player.drinkEmAll();
     } catch (error) {
         console.log(error.message);
     }
