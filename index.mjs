@@ -27,14 +27,52 @@ const execute = async () => {
         const pouch_yellow = dataPlayer.players[0].pouch_yellow;
        
         // Create the bag of potions
-        const potionBag = PotionBag.create(pouch_red, cauldron);
+        const potionBagAged = PotionBag.create(pouch_aged, cauldron);
+        const potionBagRed = PotionBag.create(pouch_red, cauldron);
+        const potionBagGreen = PotionBag.create(pouch_green, cauldron);
+        const potionBagYellow = PotionBag.create(pouch_yellow, cauldron);
 
+
+        console.log();
+        
         
         // Create character 
-        const player = Character.from(dataPlayer.players[0], potionBag);
-        showCharacter(player)
+        console.log("\n\n-----------------------------");
+        console.log("|         Pouch Aged        |");
+        console.log("-----------------------------\n");
+        const playerAged = Character.from(dataPlayer.players[0], potionBagAged);
+        showCharacter(playerAged)
+        playerAged.drinkEmAll();
 
-        player.drinkEmAll();
+
+        console.log("\n\n----------------------------");
+        console.log("|         Pouch Red        |");
+        console.log("----------------------------\n");
+        const playerRed = Character.from(dataPlayer.players[0], potionBagRed);
+        showCharacter(playerRed)
+        playerRed.drinkEmAll();
+
+
+        console.log("\n\n------------------------------");
+        console.log("|         Pouch Green        |");
+        console.log("------------------------------\n");
+        const playerGreen = Character.from(dataPlayer.players[0], potionBagGreen);
+        showCharacter(playerGreen)
+        playerGreen.drinkEmAll();
+
+
+        console.log("\n\n-------------------------------");
+        console.log("|         Pouch Yellow        |");
+        console.log("-------------------------------\n");
+        const playerYellow= Character.from(dataPlayer.players[0], potionBagYellow);
+        showCharacter(playerYellow)
+        playerYellow.drinkEmAll();
+
+
+        console.log();
+        
+
+
     } catch (error) {
         console.log(error.message);
     }
@@ -96,6 +134,8 @@ function showCharacter(character) {
         console.log("Potion "+(i+1)+":         "+ potion.name);
         
     }
+    
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     
     
 }
