@@ -33,6 +33,6 @@ class FailedPotion extends Potion {
 
 class PotionOfSanity extends Potion{
     constructor() {
-        super("Potion of sanity", 1000, 1, 50);
+        super("Potion of Sanity", 1000, 1, 50);
     }
 }
