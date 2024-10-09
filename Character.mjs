@@ -86,11 +86,52 @@ export class Character {
                     this.updateStamina(1);
                     this.updateHealth(1);
         }
-        console.log(this);
+        console.log("Magick Actual "+ this.magick);
+        console.log("Stamina Actual "+ this.stamina);
+        console.log("Health Actual "+ this.health);
     }
 
     drinkPoison(potion){
+        const name = potion.name.split(" ");
 
+        let type = "";
+        console.log(potion);
+        
+        let otherTypeOfEffect = true;
+
+        for (let i = 0; i < name.length; i++) {
+            const word = name[i];
+            
+            switch (word) {
+                case "Magicka":
+                    this.updateMagick(-potion.value);
+                    otherTypeOfEffect = false;
+                    break;
+                    
+                case "Stamina":
+                    this.updateStamina(-potion.value);
+                    otherTypeOfEffect = false;
+                    break;
+
+                case "Health":
+                    this.updateHealth(-potion.value);
+                    otherTypeOfEffect = false;
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
+
+        if (otherTypeOfEffect) {
+            this.updateMagick(-1);
+                    this.updateStamina(-1);
+                    this.updateHealth(-1);
+        }
+        console.log("Magick Actual "+ this.magick);
+        console.log("Stamina Actual "+ this.stamina);
+        console.log("Health Actual "+ this.health);
     }
 
     updateMagick(value){
